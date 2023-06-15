@@ -78,3 +78,98 @@ class Monsterhigh:
                       self.level / other.level / 50 + 2) * effectiveness)
         print(f"{self} attacks {other} with {self.general_attack} and deals {damage} damage!")
         other.lose_health(damage)
+
+#Attack another Monster and reduce its health based on the effectiveness, this is a special attack        
+    def attack_two(self, other):
+        effectiveness = self.get_effectiveness(other.types[0])
+        if len(other.types) > 1:
+            effectiveness *= self.get_effectiveness(other.types[1])
+        damage = int(((2 * self.level / 5 + 3) * 40 *
+                      self.level / other.level / 50 + 2) * effectiveness)
+        print(f"{self} attacks {other} with {self.special_attack} and deals {damage} damage!")
+        other.lose_health(damage)
+
+#simulates a battle between two Monsters using only simple attacks
+def battle(monster1, monster2):
+    print(" ")
+    print(f"~~~~ {monster1} vs. {monster2}! Let the monstrous battle begin! ~~~~")
+    current_turn = 1
+    while not monster1.is_ko and not monster2.is_ko:
+        print(" ")
+        print(f"Round {current_turn}!")
+        attacker = monster1 if current_turn % 2 == 1 else monster2
+        defender = monster2 if current_turn % 2 == 1 else monster1
+        attacker.attack(defender)
+        current_turn += 1
+    winner = monster1 if  monster2.is_ko else monster2
+    print(" ")
+    print(f"~~~~ {winner} wins! ~~~~")
+    fighters = monster1 and monster2
+    fighters.revive()
+    fighters.gain_health(100)
+   
+#Simulates a battle between two Monsters, one selected by the user and another randomly selected
+#They will fight round by round 
+def battle_two(monster1, monster2):
+    print(" ")
+    print(f"~~~~ {monster1} vs. {monster2}! Let the monstrous battle begin! ~~~~~")
+    current_turn = 1
+    while not monster1.is_ko and not monster2.is_ko:
+        print(" ")
+        print(f"Round {current_turn}!")
+        attacker = monster1 if current_turn % 2 == 1 else monster2
+        defender = monster2 if current_turn % 2 == 1 else monster1
+        if current_turn % 2 ==0:
+            attacker.attack(defender)
+            current_turn += 1
+        else:
+            print(f"{monster1} choose your attack: simple attack(1) or special attack(2) ")
+            option = input()
+            if option == "1":
+                attacker.attack(defender)
+            elif option == "2":
+                attacker.attack_two(defender)
+            current_turn += 1
+    winner = monster1 if  monster2.is_ko else monster2
+    print(" ")
+    print(f"~~~~ {winner} wins! ~~~~")
+    fighters = monster1 and monster2
+    fighters.revive()
+    fighters.gain_health(100)
+ 
+#Simulates a battle between two Monsters using simple attacks and special attacks
+#Allows users to play round by round and select the attack they want to use
+def battle_three(monster1, monster2):
+    print(" ")
+    print(f"~~~~ {monster1} vs. {monster2}! Let the monstrous battle begin! ~~~~")
+    current_turn = 1
+    while not monster1.is_ko and not monster2.is_ko:
+        print(" ")
+        print(f"Round {current_turn}!")
+        attacker = monster1 if current_turn % 2 == 1 else monster2
+        defender = monster2 if current_turn % 2 == 1 else monster1
+        if current_turn % 2 ==0:
+            print(f"{monster2} choose your attack: simple attack(1) or special attack(2) ")
+        else:
+            print(f"{monster1} choose your attack: simple attack(1) or special attack(2) ")
+        option = input()
+        if option == "1":
+            attacker.attack(defender)
+        elif option == "2":
+            attacker.attack_two(defender)
+        current_turn += 1
+    winner = monster1 if  monster2.is_ko else monster2
+    print (" ")
+    print(f"~~~~ {winner} wins! ~~~~")
+    fighters = monster1 and monster2
+    fighters.revive()
+    fighters.gain_health(100)
+    
+#Define the Monster types  
+vampire_type = MonsterhighType("Vampire", strengths=["Zombie"], weaknesses=["Mummy"])
+frankenstein_type = MonsterhighType("Frankenstein", strengths=[], weaknesses=[])
+mummy_type = MonsterhighType("Mummy", strengths=["Vampire"], weaknesses=["Zombie"])
+zombie_type = MonsterhighType("Zombie", strengths=[], weaknesses=[])
+sea_monster_type = MonsterhighType("Sea Monster", strengths=[], weaknesses=[])
+werewolf_type = MonsterhighType("Werewolf", strengths=[], weaknesses=[])
+ghost_type = MonsterhighType("Ghost", strengths=[], weaknesses=[])
