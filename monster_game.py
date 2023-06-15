@@ -173,3 +173,16 @@ zombie_type = MonsterhighType("Zombie", strengths=[], weaknesses=[])
 sea_monster_type = MonsterhighType("Sea Monster", strengths=[], weaknesses=[])
 werewolf_type = MonsterhighType("Werewolf", strengths=[], weaknesses=[])
 ghost_type = MonsterhighType("Ghost", strengths=[], weaknesses=[])
+
+#Create all the Monsters with their charactaristics and changes the names of their attacks
+draculaura = Monsterhigh("Draculaura", 10, [vampire_type])
+draculaura.general_attack = "Dark Fog"
+draculaura.special_attack = "Flurry of Bats"
+
+frankie_stein= Monsterhigh("Frankie Stein", 2, [frankenstein_type])
+frankie_stein.general_attack = "Electric Kick"
+frankie_stein.special_attack = "Electric Surge"
+
+ghoulia_yellps = Monsterhigh("Ghoulia Yelps", 5, [zombie_type])
+ghoulia_yellps.general_attack = "Deafening Scream"
+ghoulia_yellps.special_attack = "Telekinesis"
