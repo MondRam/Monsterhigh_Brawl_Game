@@ -236,4 +236,12 @@ while True:
         print("****In this game mode, Monsters are randomly selected and will fight each other****")
         print(" ")
         battle(r_monster, rr_monster)
-
+#Make the second game mode calling the dictionary for the user to view the available Monsters and select 2
+    elif opt == "2":
+        print(" ")
+        print("****In this game mode, you will select the Monsters and they will fight each other****")
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle(monsters_options[input("Select the first Monster: ")], monsters_options[input("Select the second Monster: ")])
