@@ -257,3 +257,15 @@ while True:
             print( key, ": ",  mons)
         print(" ")
         battle_two(monsters_options[input("Select the first monster: ")], rrr_monster)
+#Creates a two-player game mode where each player can choose the Monster they want to use
+# Users will play round by round selecting the attack they want to use
+    elif opt == "4":
+        print(" ")
+        print("****This game mode is multiplayer for two people, where each one selects their Monster and they will fight in rounds****")
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle_three(monsters_options[input("Player1 select your Monster: ")], monsters_options[input("Player2 select your Monster: ")])
+        
+#Note: After ever battle, the monsters revive and increase their health to the maximum
