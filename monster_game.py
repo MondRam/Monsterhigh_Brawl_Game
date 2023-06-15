@@ -213,3 +213,27 @@ monsters_options = {
     '6': lagoona_blue, 
     '7': spectra_vondergeist 
 }
+
+#Create a menu that allows the user to select the game mode they want
+while True:
+    print("____________________________________________________________________________")
+    print(" ")
+    print("Monsterhigh Brawl Menu")
+    print("1. Random")
+    print("2. Automatic")
+    print("3. Single player")
+    print("4. Multiplayer")
+    opt = input("Select game mode (1,2,3,4): ")
+    print(" ")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+
+#Make the first game mode using the random library to select the two Monsters 
+    if opt == "1":
+        print(" ")
+        monsters = [draculaura, frankie_stein, ghoulia_yellps, clawdine_wolf, cleo_de_nile, lagoona_blue, spectra_vondergeist]
+        r_monster = random.choice(monsters)
+        rr_monster = random.choice(monsters) 
+        print("****In this game mode, Monsters are randomly selected and will fight each other****")
+        print(" ")
+        battle(r_monster, rr_monster)
+
