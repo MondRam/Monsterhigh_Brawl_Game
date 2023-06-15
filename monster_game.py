@@ -186,3 +186,19 @@ frankie_stein.special_attack = "Electric Surge"
 ghoulia_yellps = Monsterhigh("Ghoulia Yelps", 5, [zombie_type])
 ghoulia_yellps.general_attack = "Deafening Scream"
 ghoulia_yellps.special_attack = "Telekinesis"
+
+cleo_de_nile= Monsterhigh("Cleo de Nile", 10, [mummy_type])
+cleo_de_nile.general_attack = "Sand Strike"
+cleo_de_nile.special_attack = "Radiant Light"
+
+lagoona_blue = Monsterhigh("Lagoona Blue", 7, [sea_monster_type])
+lagoona_blue.general_attack = "Water Surge"
+lagoona_blue.special_attack = "Hypnotic Waves"
+
+clawdine_wolf= Monsterhigh("Clawdine Wolf", 9, [werewolf_type])
+clawdine_wolf.general_attack = "Slash"
+clawdine_wolf.special_attack = "Wolf Transformation"
+
+spectra_vondergeist= Monsterhigh("Spectra Vondergeist", 1, [ghost_type])
+spectra_vondergeist.general_attack = "Invisible Attack"
+spectra_vondergeist.special_attack = "Possesion"
