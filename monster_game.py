@@ -173,3 +173,99 @@ zombie_type = MonsterhighType("Zombie", strengths=[], weaknesses=[])
 sea_monster_type = MonsterhighType("Sea Monster", strengths=[], weaknesses=[])
 werewolf_type = MonsterhighType("Werewolf", strengths=[], weaknesses=[])
 ghost_type = MonsterhighType("Ghost", strengths=[], weaknesses=[])
+
+#Create all the Monsters with their charactaristics and changes the names of their attacks
+draculaura = Monsterhigh("Draculaura", 10, [vampire_type])
+draculaura.general_attack = "Dark Fog"
+draculaura.special_attack = "Flurry of Bats"
+
+frankie_stein= Monsterhigh("Frankie Stein", 2, [frankenstein_type])
+frankie_stein.general_attack = "Electric Kick"
+frankie_stein.special_attack = "Electric Surge"
+
+ghoulia_yellps = Monsterhigh("Ghoulia Yelps", 5, [zombie_type])
+ghoulia_yellps.general_attack = "Deafening Scream"
+ghoulia_yellps.special_attack = "Telekinesis"
+
+cleo_de_nile= Monsterhigh("Cleo de Nile", 10, [mummy_type])
+cleo_de_nile.general_attack = "Sand Strike"
+cleo_de_nile.special_attack = "Radiant Light"
+
+lagoona_blue = Monsterhigh("Lagoona Blue", 7, [sea_monster_type])
+lagoona_blue.general_attack = "Water Surge"
+lagoona_blue.special_attack = "Hypnotic Waves"
+
+clawdine_wolf= Monsterhigh("Clawdine Wolf", 9, [werewolf_type])
+clawdine_wolf.general_attack = "Slash"
+clawdine_wolf.special_attack = "Wolf Transformation"
+
+spectra_vondergeist= Monsterhigh("Spectra Vondergeist", 1, [ghost_type])
+spectra_vondergeist.general_attack = "Invisible Attack"
+spectra_vondergeist.special_attack = "Possesion"
+
+#Create a dictionary with all available Monsters
+monsters_options = {
+    '1': draculaura, 
+    '2': frankie_stein, 
+    '3': ghoulia_yellps, 
+    '4': clawdine_wolf, 
+    '5': cleo_de_nile, 
+    '6': lagoona_blue, 
+    '7': spectra_vondergeist 
+}
+
+#Create a menu that allows the user to select the game mode they want
+while True:
+    print("____________________________________________________________________________")
+    print(" ")
+    print("Monsterhigh Brawl Menu")
+    print("1. Random")
+    print("2. Automatic")
+    print("3. Single player")
+    print("4. Multiplayer")
+    opt = input("Select game mode (1,2,3,4): ")
+    print(" ")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+
+#Make the first game mode using the random library to select the two Monsters 
+    if opt == "1":
+        print(" ")
+        monsters = [draculaura, frankie_stein, ghoulia_yellps, clawdine_wolf, cleo_de_nile, lagoona_blue, spectra_vondergeist]
+        r_monster = random.choice(monsters)
+        rr_monster = random.choice(monsters) 
+        print("****In this game mode, Monsters are randomly selected and will fight each other****")
+        print(" ")
+        battle(r_monster, rr_monster)
+#Make the second game mode calling the dictionary for the user to view the available Monsters and select 2
+    elif opt == "2":
+        print(" ")
+        print("****In this game mode, you will select the Monsters and they will fight each other****")
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle(monsters_options[input("Select the first Monster: ")], monsters_options[input("Select the second Monster: ")])
+#Create the third game mode where the user chooses the first Monster and the second will be chosen randomly
+#these two will fight each other in rounds, where the user will select the type of attack they want to use and the other attack will be randomly selected
+    elif opt == "3":
+        print(" ")
+        print("****In this game mode you will select a Monster and the other will be randomly selected and they will fight each other in rounds****")
+        monsters = [draculaura, frankie_stein, ghoulia_yellps, clawdine_wolf, cleo_de_nile, lagoona_blue, spectra_vondergeist]
+        rrr_monster = random.choice(monsters)
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle_two(monsters_options[input("Select the first monster: ")], rrr_monster)
+#Creates a two-player game mode where each player can choose the Monster they want to use
+# Users will play round by round selecting the attack they want to use
+    elif opt == "4":
+        print(" ")
+        print("****This game mode is multiplayer for two people, where each one selects their Monster and they will fight in rounds****")
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle_three(monsters_options[input("Player1 select your Monster: ")], monsters_options[input("Player2 select your Monster: ")])
+        
+#Note: After ever battle, the monsters revive and increase their health to the maximum
