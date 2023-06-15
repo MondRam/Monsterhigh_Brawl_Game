@@ -245,3 +245,15 @@ while True:
             print( key, ": ",  mons)
         print(" ")
         battle(monsters_options[input("Select the first Monster: ")], monsters_options[input("Select the second Monster: ")])
+#Create the third game mode where the user chooses the first Monster and the second will be chosen randomly
+#these two will fight each other in rounds, where the user will select the type of attack they want to use and the other attack will be randomly selected
+    elif opt == "3":
+        print(" ")
+        print("****In this game mode you will select a Monster and the other will be randomly selected and they will fight each other in rounds****")
+        monsters = [draculaura, frankie_stein, ghoulia_yellps, clawdine_wolf, cleo_de_nile, lagoona_blue, spectra_vondergeist]
+        rrr_monster = random.choice(monsters)
+        print("These are your options: ")
+        for key, mons  in monsters_options.items():
+            print( key, ": ",  mons)
+        print(" ")
+        battle_two(monsters_options[input("Select the first monster: ")], rrr_monster)
