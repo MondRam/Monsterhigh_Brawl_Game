@@ -202,3 +202,14 @@ clawdine_wolf.special_attack = "Wolf Transformation"
 spectra_vondergeist= Monsterhigh("Spectra Vondergeist", 1, [ghost_type])
 spectra_vondergeist.general_attack = "Invisible Attack"
 spectra_vondergeist.special_attack = "Possesion"
+
+#Create a dictionary with all available Monsters
+monsters_options = {
+    '1': draculaura, 
+    '2': frankie_stein, 
+    '3': ghoulia_yellps, 
+    '4': clawdine_wolf, 
+    '5': cleo_de_nile, 
+    '6': lagoona_blue, 
+    '7': spectra_vondergeist 
+}
